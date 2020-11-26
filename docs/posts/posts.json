@@ -1,0 +1,19 @@
+[
+  {
+    "path": "posts/welcome/",
+    "title": "What is interoperability?",
+    "description": "Here, I try to give a short introduction to interoperability and why I think that it matters.",
+    "author": [
+      {
+        "name": "Steffen Ehrmann",
+        "url": {}
+      }
+    ],
+    "date": "2020-11-26",
+    "categories": [],
+    "contents": "\n\n\n\n",
+    "preview": {},
+    "last_modified": "2020-11-26T22:12:29+01:00",
+    "input_file": "welcome.utf8.md"
+  }
+]

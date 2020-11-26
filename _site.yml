@@ -1,0 +1,43 @@
+name: "website"
+title: "Steffen Ehrmann"
+description: |
+  Exploring human-nature interactions and thoughts about interoperability and reproducible science
+base_url: https://www.steffen-ehrmann.de
+output_dir: "docs"
+navbar:
+  search: true
+  source_url: true
+  right:
+    - text: "Home"
+      href: index.html
+    - text: R-packages
+      menu:
+        - text: "geometr"
+          href: https://ehrmanns.github.io/geometr/
+        - text: "tabshiftr"
+          href: https://ehrmanns.github.io/tabshiftr/
+        - text: "arealDB"
+          href: https://github.com/EhrmannS/arealDB
+    - text: "Blogroll"
+      href: blogroll.html
+    - text: "About"
+      href: about.html
+    - icon: fa-github
+      text: GitHub
+      href: https://github.com/EhrmannS
+output:
+  distill::distill_article:
+    toc: true
+twitter:
+  site: "@DerEhrmann"
+  creator: "@DerEhrmann"
+collections:
+  posts:
+    categories: true
+    categories_metadata: true
+    citations: false
+    authors_metadata: false
+    disqus:
+      shortname: interoperability-in-landuse-science
+      hidden: true
+    share: [twitter, linkedin]

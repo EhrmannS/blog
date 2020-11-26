@@ -6,7 +6,7 @@ base_url: https://www.steffen-ehrmann.de
 output_dir: "."
 navbar:
   search: true
-  source_url: true
+  source_url: https://github.com/EhrmannS/website
   right:
     - text: "Home"
       href: index.html
@@ -22,9 +22,6 @@ navbar:
       href: blogroll.html
     - text: "About"
       href: about.html
-    - icon: fa-github
-      text: GitHub
-      href: https://github.com/EhrmannS/website
 output:
   distill::distill_article:
     toc: true
@@ -36,7 +33,7 @@ collections:
     categories: true
     categories_metadata: true
     citations: false
-    authors_metadata: false
+    authors_metadata: true
     disqus:
       shortname: interoperability-in-landuse-science
       hidden: true

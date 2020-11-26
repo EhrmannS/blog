@@ -7,14 +7,15 @@
     <description>Exploring human-nature interactions and thoughts about interoperability and reproducible science
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Thu, 26 Nov 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 27 Nov 2020 00:00:00 +0000</lastBuildDate>
     <item>
       <title>What is interoperability?</title>
       <dc:creator>Steffen Ehrmann</dc:creator>
-      <link>https://www.steffen-ehrmann.de/posts/welcome</link>
+      <link>https://www.steffen-ehrmann.de/posts/2020-11-27-what-is-interoperability</link>
       <description>Here, I try to give a short introduction to interoperability and why I think that it matters.</description>
-      <guid>https://www.steffen-ehrmann.de/posts/welcome</guid>
-      <pubDate>Thu, 26 Nov 2020 00:00:00 +0000</pubDate>
+      <category>interoperability</category>
+      <guid>https://www.steffen-ehrmann.de/posts/2020-11-27-what-is-interoperability</guid>
+      <pubDate>Fri, 27 Nov 2020 00:00:00 +0000</pubDate>
     </item>
   </channel>
 </rss>

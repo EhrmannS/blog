@@ -5,7 +5,7 @@
       "title": "About this blog and me!",
       "author": [],
       "contents": "\nHi there,\nmy name is Steffen (Son of Herbert) Ehrmann, from the south-west of Germany, and I identify as landscape ecologist.\nSo much for the boring, uncreative introduction! On this website I want write about anything that is related to my passion of human-nature interactions and my obsession of making data and tools interoperable. I believe that anything can, and should be explained so that even my grandmother can understand it; also interoperability (ok, she is dead already… but I hope you get what I mean). I guess every now and then I will also not hold back with cynicism and critical thoughts about academia or the system we scientist dwell in and I hope you, the reader, also find this entertaining. And perhaps it also helps, after all as you sow, you shall reap, which is a nice transition to the overarching topic I am dealing with mostly in my academic career; agro-ecology, land-system science and macroecology. So in case you are into any of those topics, I hope you enjoy reading one or the other blog-post I am gonna post or have already posted.\nYou can also find me on google scholar, github, researchgate, linkedin or @DerEhrmann.\n\n\n\n",
-      "last_modified": "2020-11-27T13:25:38+01:00"
+      "last_modified": "2020-11-28T17:21:56+01:00"
     },
     {
       "path": "blogroll.html",
@@ -13,14 +13,22 @@
       "description": "Just a collection of cool links",
       "author": [],
       "contents": "\nr2d3: A visual introduction to machine learning\nSemantic Scholar\n\n\n\n",
-      "last_modified": "2020-11-27T13:25:39+01:00"
+      "last_modified": "2020-11-28T17:21:56+01:00"
+    },
+    {
+      "path": "funbo.html",
+      "title": "FunBo Project",
+      "description": "blablubb",
+      "author": [],
+      "contents": "\n\n\n\n",
+      "last_modified": "2020-11-28T17:21:57+01:00"
     },
     {
       "path": "index.html",
       "title": "Steffen Ehrmann",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2020-11-27T13:25:39+01:00"
+      "last_modified": "2020-11-28T17:21:58+01:00"
     }
   ],
   "collections": ["posts/posts.json"]

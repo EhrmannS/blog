@@ -10,6 +10,8 @@ navbar:
   right:
     - text: "Home"
       href: index.html
+    - text: "About"
+      href: about.html
     - text: R-packages
       menu:
         - text: "geometr"
@@ -18,10 +20,18 @@ navbar:
           href: https://ehrmanns.github.io/tabshiftr/
         - text: "arealDB"
           href: https://github.com/EhrmannS/arealDB
+    - text: Projects
+      menu:
+        - text: "smallFOREST"
+          href: https://www.u-picardie.fr/smallforest/uk/
+        - text: "LUCKINet"
+          href: https://www.idiv.de/en/luckinet.html
+        - text: "GeoKur"
+          href: https://geokur.geo.tu-dresden.de
+        - text: "FunBo"
+          href: funbo.html
     - text: "Blogroll"
       href: blogroll.html
-    - text: "About"
-      href: about.html
 output:
   distill::distill_article:
     toc: true

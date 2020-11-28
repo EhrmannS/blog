@@ -1,0 +1,11 @@
+---
+title: "FunBo Project"
+description: |
+  blablubb
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+

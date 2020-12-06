@@ -1,0 +1,22 @@
+---
+title: "Semantic interoperability"
+description: |
+  A short description of the post.
+author:
+  - name: Steffen Ehrmann
+    url: {}
+date: "`r Sys.Date()`"
+output:
+  distill::distill_article:
+    self_contained: false
+draft: true
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+Talk about naming of the ESA CCI Land-Cover legend, how it contains names that are complemented with "percent valeus". However, these values represent different concepts and this is not clearly mentioned anywhere. For example "Sparse herbaceous (15\%) could mean that the pixel is covered by 15\% of vegetation (and is thus sparse), or that it is covered 100\% by a land-cover type that has a canopy cover of 15\%. While it results in the same outcome in that example, the example of "Tree cover, broadleaved, deciduous, closed to open (>15\%)" means, that the pixel is covered by a certain forest (with deciduous broadleaved trees) that have a canopy cover of more than 15\%. In this example it makes a difference whether we consider canopy cover or pixel cover, because the land-cover class "forest" contains other layers with further vegetation (herbs, shrubs and saplings), which are not comprised in the definition. So despite it maybe only having a canopy cover of 15\%, we should still assume that 100\% of the pixel are covered by that mix of different layers called forest. In the case of Sparse vegetation, the other layers would be composed of 100\% bare ground, which is why it doesn matter here. However, the assumption that in the case of Sparse vegetation it is actually the 15\% cover of the pixel that is the distinguishing aspect, deviates from the assumption that it is probably 100\% of a pixel that is covered with forest. Hence, the legend does not follow semantically interoperable in itself.
+
+-> How is this, when actually looking at the LCCS description, how do they handle it?

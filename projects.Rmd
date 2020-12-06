@@ -1,0 +1,32 @@
+---
+title: "Projects"
+description: |
+  This is a summary of the projects I participated in
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+# LUCKINet
+
+
+website: [LUCKINet](https://www.idiv.de/en/luckinet.html)
+
+
+# GeoKur
+
+
+website: [GeoKur](https://geokur.geo.tu-dresden.de)
+
+
+# FunBo
+
+Information coming soon
+
+
+# smallFOREST
+
+
+website: [smallFOREST](https://www.u-picardie.fr/smallforest/uk/)

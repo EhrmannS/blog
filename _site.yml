@@ -21,21 +21,20 @@ navbar:
         - text: "arealDB"
           href: https://github.com/EhrmannS/arealDB
     - text: Projects
+      href: projects.html
       menu:
-        - text: "smallFOREST"
-          href: https://www.u-picardie.fr/smallforest/uk/
         - text: "LUCKINet"
-          href: https://www.idiv.de/en/luckinet.html
+          href: projects.html#luckinet
         - text: "GeoKur"
-          href: https://geokur.geo.tu-dresden.de
+          href: projects.html#geokur
         - text: "FunBo"
-          href: funbo.html
+          href: projects.html#funbo
+        - text: "smallFOREST"
+          href: projects.html#smallforest
     - text: "Blogroll"
       href: blogroll.html
 output:
-  distill::distill_article:
-    toc: true
-    toc_depth: 2
+  distill::distill_article
 creative_commons: CC BY-SA
 twitter:
   site: "@DerEhrmann"

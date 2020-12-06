@@ -11,7 +11,12 @@ Hi there,
 
 my name is Steffen (Son of Herbert) Ehrmann, from the south-west of Germany, and I identify as landscape ecologist.
 
-So much for the boring, uncreative introduction! On this website I want write about anything that is related to my passion of human-nature interactions and my obsession of making data and tools interoperable. I believe that anything can, and should be explained so that even my grandmother can understand it; also *interoperability* (ok, she is dead already... but I hope you get what I mean). I guess every now and then I will also not hold back with cynicism and critical thoughts about academia or the system we scientist dwell in and I hope you, the reader, also find this entertaining. And perhaps it also helps, after all *as you sow, you shall reap*, which is a nice transition to the overarching topic I am dealing with mostly in my academic career; agro-ecology, land-system science and macroecology. So in case you are into any of those topics, I hope you enjoy reading one or the other blog-post I am gonna post or have already posted.
+On this website I want write about anything that is related to my passion of human-nature interactions and my obsession of making data and tools interoperable. I believe that anything can, and should be explained so that even my grandmother can understand it; also *interoperability*.
+
+*As you sow, you shall reap* is a statement I believe in, which is also a nice transition to the overarching topic I am dealing with mostly in my academic career; agro-ecology, land-system science and macroecology.
+Also the ecology of infectious diseases is close to my heart (I wrote my [PhD Thesis](https://www.researchgate.net/publication/322331366_Biodiversity_and_ecosystem_disservices_of_small_forest_patches_in_European_agricultural_landscapes_with_emphasis_on_Ixodes_ricinus_and_Borrelia_burgdorferi_sensu_lato) about it), so this will occasionally also be the topic here.
+
+In case you are into any of those topics, I hope you enjoy your time here, and encourage you to participate in discussions or challenge what I wrote!
 
 You can also find me on [google scholar](https://scholar.google.com/citations?user=Cvesv3oAAAAJ&hl=de), [github](https://github.com/EhrmannS), [researchgate](https://www.researchgate.net/profile/Steffen_Ehrmann2), [linkedin](https://www.linkedin.com/in/steffen-ehrmann/) or [\@DerEhrmann](https://twitter.com/DerEhrmann).
 

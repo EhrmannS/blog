@@ -117,7 +117,7 @@ When we tell our program or expect by implication ^[which is the case with most 
 
 # \"Like a matrix\"
 
-Moreover, to understand both `[` and `[[`, we also need to know that we can index a data frame \"like a matrix\" using a `','.
+Moreover, to understand both `[` and `[[`, we also need to know that we can index a data frame \"like a matrix\" using a `','`.
 We would signal that either rows (anything before the comma), columns (anything behind the comma), or a single cell (both positions) are selected.
 That *indexing like a matrix*-statement presumably only makes sense when its clear that a data frame is, in fact, a special case of a list.
 That case is characterised by only one level of nesting, the same amount of elements per list-item and with a specific way of being printed in the console.

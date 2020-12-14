@@ -43,7 +43,7 @@ This principle is not only true for software written in different programming la
 
 What was visible to me, back in the time, was a wave of standardisation of workflows and software, for example, the R package `dplyr`.
 `dplyr` provides a relatively small set of \"verbs\" as the basic building blocks (I would call them *operators*) to build various data management algorithms.
-I would regard these operators as interoperable software because they are the result of identifying those aspects many workflows have in common 
+I would regard these operators as interoperable software because they are the result of identifying those aspects many workflows have in common.
 Eventually they are a harmonised and easy to understand interface to access and process data.
 A typical example would be to calculate the average of a set of values for the levels of a factor.
 This task is composed of two subtasks:
@@ -97,7 +97,7 @@ df[[1]]
 
 With this simple test, I gained the insight that `[` is by default not a function that has been designed for an interoperable workflow *without any restrictions*.
 When providing only a single value to `[`, I don't receive a column (which implies that the output format is a data frame), but a vector of the contents of a column.
-I can't use this function in any context, where it is not previously known how many columns I will have to select, without first running additional tests to inquire about the context.
+I can't use this function in any context, where it is not previously known how many columns I will have to select, without first running additional tests to inquire about the context (as in the following hypothetical function).
 
 ```{r, echo=TRUE}
 mySelect <- function(df, row, cols){
@@ -139,7 +139,7 @@ lst[[1]]
 df[[1]]
 ```
 
-There is no clear statement that *indexing like a matrix* and *indexing like a list* are different functions. 
+In the documentation, there is no clear statement that *indexing like a matrix* and *indexing like a list* are different functions. 
 Thus I find it most intuitive to assume that \"omitting the `','`\" is like choosing the first argument of the function call, as this the same behaviour as in any other function in R.
 However, you have guessed it, this is not how `[` works with the comma-notation because columns are specified after the comma.
 
@@ -154,17 +154,17 @@ df[1, ]
 df[, 1, drop = FALSE]
 ```
 
-One could say *`[` is not even interoperable with itself*!?
+One could say *`[` is not even interoperable with itself* (depending on how the arguments are specified)!?
 I am aware that this example is very artificial and anybody who has understood how \"the comma-notation\" works should be able to avoid that pitfall.
 Still, the fact that it even exists is another testimony of a lack of interoperability.
-I touched on it above already, *assuming its the same function* might be the problem here.
-Perhaps we should simply not regard `[` as the same function as `[,` or not even as a special case of it -- because their arguments contradict one another.
+I touched on it above already, *assuming it's the same function* might be the problem here.
+Perhaps we should simply not regard `[` as the same function as `[,`, or not even as a special case of it -- because their arguments contradict one another.
 
 # Select columns *by name*
 
-The previous two issues are not even where the lack of interoperability ends or could conclusively be dealt with. When we want to select a column by its name, we can do with both `[` and `[[`. 
+The previous two issues are not even where the lack of interoperability ends or could conclusively be dealt with. When we want to select a column by its name, we can do that with both `[` and `[[`. 
 However, in case we were that witty person using `$`, we might get into trouble latest here.
-Some things are unknown at the time a function is built or compiled, such as the column names of data frames the user provides.
+Some things are unknown at the time a function is built, such as the column names of data frames the user provides.
 Thus, a function that is supposed to work with such dynamic data has to be compatible with unknown column names.
 
 ```{r, echo = TRUE}
@@ -185,11 +185,11 @@ In case I decide to use the `$` function, I can only do this where:
 - I want the output as a numeric vector without a name.
 
 Granted, in (some/many/most) cases this may be sufficient, depending on your use-cases. 
-However, I would argue, here again, the code must be provided with routines that ensure all requirements are met, before being able to successfully proceed.
+However, I would argue, here again, the code must be provided with routines that ensure all requirements are met (i.e., *made interoperable*), before being able to successfully proceed.
 
 # Summing up
 
-There are several ways of selecting a column from a data frame, some of which are are more or less context-specific and thus not interoperable (in the sense of interchangeable).
+There are several ways of selecting a column from a data frame, some of which are more or less context-specific and thus not interoperable (in the sense of interchangeable).
 
 ```{r, eval=FALSE, echo=TRUE}
 # get the values as column in a data-frame

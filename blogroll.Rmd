@@ -2,13 +2,28 @@
 title: "Blogroll"
 description: |
   Just a collection of cool links
+output:
+  distill::distill_article:
+    highlight: haddock
+    self_contained: false
+    toc: true
+    toc_depth: 2
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
+# Geography
 
-[r2d3: A visual introduction to machine learning](http://www.r2d3.us/visual-intro-to-machine-learning-part-1/)
+[The Geography of Transport Systems (book)](https://transportgeography.org/)
 
-[Semantic Scholar](https://www.semanticscholar.org)
+# Machine learning
+
+[r2d3: A visual introduction to machine learning (blog)](http://www.r2d3.us/visual-intro-to-machine-learning-part-1/)
+
+# Meta-Sources
+
+[Semantic Scholar (search engine)](https://www.semanticscholar.org)
+
+[gapminder (thematic compilation)](https://www.gapminder.org/)

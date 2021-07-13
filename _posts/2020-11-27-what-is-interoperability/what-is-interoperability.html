@@ -86,8 +86,8 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 
 
   <!--  https://schema.org/Article -->
-  <meta property="article:published" itemprop="datePublished" content="2020-12-14"/>
-  <meta property="article:created" itemprop="dateCreated" content="2020-12-14"/>
+  <meta property="article:published" itemprop="datePublished" content="2021-07-13"/>
+  <meta property="article:created" itemprop="dateCreated" content="2021-07-13"/>
   <meta name="article:author" content="Steffen Ehrmann"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
@@ -105,7 +105,7 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","slug","output","categories","draft"]}},"value":[{"type":"character","attributes":{},"value":["What is interoperability?"]},{"type":"character","attributes":{},"value":["Here, I give a short introduction to interoperability and why I think we should make an effort for it.\n\n\nTL;DR: Many functions have very context-specific side-effects making code harder to understand and less exchangeable. Try using interoperable functions wherever you can!\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","affiliation","affiliation_url","orcid_id"]}},"value":[{"type":"character","attributes":{},"value":["Steffen Ehrmann"]},{"type":"character","attributes":{},"value":["iDiv/Macroecology and Society"]},{"type":"character","attributes":{},"value":["https://www.idiv.de/en/groups_and_people/core_groups/macroecosocial.html"]},{"type":"character","attributes":{},"value":["0000-0002-2958-0796"]}]}]},{"type":"character","attributes":{},"value":["2020-12-14"]},{"type":"character","attributes":{},"value":["whyInteroperability"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["highlight","self_contained","toc","toc_depth"]}},"value":[{"type":"character","attributes":{},"value":["haddock"]},{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[2]}]}]},{"type":"character","attributes":{},"value":["interoperability","why though"]},{"type":"logical","attributes":{},"value":[false]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","slug","output","categories","draft"]}},"value":[{"type":"character","attributes":{},"value":["What is interoperability?"]},{"type":"character","attributes":{},"value":["Here, I give a short introduction to interoperability and why I think we should make an effort for it.\n\n\nTL;DR: Many functions have very context-specific side-effects making code harder to understand and less exchangeable. Try using interoperable functions wherever you can!\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","affiliation","affiliation_url","orcid_id"]}},"value":[{"type":"character","attributes":{},"value":["Steffen Ehrmann"]},{"type":"character","attributes":{},"value":["iDiv/Macroecology and Society"]},{"type":"character","attributes":{},"value":["https://www.idiv.de/en/groups_and_people/core_groups/macroecosocial.html"]},{"type":"character","attributes":{},"value":["0000-0002-2958-0796"]}]}]},{"type":"character","attributes":{},"value":["2021-07-13"]},{"type":"character","attributes":{},"value":["whyInteroperability"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["highlight","self_contained","toc","toc_depth"]}},"value":[{"type":"character","attributes":{},"value":["haddock"]},{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[2]}]}]},{"type":"character","attributes":{},"value":["interoperability","why though"]},{"type":"logical","attributes":{},"value":[false]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -302,6 +302,11 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
     text-decoration: underline;
   }
 
+  d-article details {
+    grid-column: text;
+    margin-bottom: 0.8em;
+  }
+
   @media(min-width: 768px) {
 
   d-article pre,
@@ -456,6 +461,17 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 
   div.hanging-indent{
     margin-left: 1em; text-indent: -1em;
+  }
+
+  /* Citation hover box */
+
+  .tippy-box[data-theme~=light-border] {
+    background-color: rgba(250, 250, 250, 0.95);
+  }
+
+  .tippy-content > p {
+    margin-bottom: 0;
+    padding: 2px;
   }
 
 
@@ -1123,7 +1139,7 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
       var layout = $(this).attr('data-layout');
 
       // apply layout to markdown level block elements
-      var elements = $(this).children().not('div.sourceCode, pre, script');
+      var elements = $(this).children().not('details, div.sourceCode, pre, script');
       elements.each(function(i, el) {
         var layout_div = $('<div class="' + layout + '"></div>');
         if (layout_div.hasClass('shaded')) {
@@ -1238,6 +1254,20 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
       // move appendix-bottom entries to the bottom
       $('.appendix-bottom').appendTo('d-appendix').children().unwrap();
       $('.appendix-bottom').remove();
+
+      // hoverable references
+      $('span.citation[data-cites]').each(function() {
+        var refHtml = $('#ref-' + $(this).attr('data-cites')).html();
+        window.tippy(this, {
+          allowHTML: true,
+          content: refHtml,
+          maxWidth: 500,
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start'
+        });
+      });
 
       // clear polling timer
       clearInterval(tid);
@@ -1398,8 +1428,12 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="what-is-interoperability_files/header-attrs-2.5/header-attrs.js"></script>
+  <script src="what-is-interoperability_files/header-attrs-2.7/header-attrs.js"></script>
   <script src="what-is-interoperability_files/jquery-1.11.3/jquery.min.js"></script>
+  <script src="what-is-interoperability_files/popper-2.6.0/popper.min.js"></script>
+  <link href="what-is-interoperability_files/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="what-is-interoperability_files/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="what-is-interoperability_files/tippy-6.2.7/tippy.umd.min.js"></script>
   <script src="what-is-interoperability_files/anchor-4.2.2/anchor.min.js"></script>
   <script src="what-is-interoperability_files/bowser-1.9.3/bowser.min.js"></script>
   <script src="what-is-interoperability_files/webcomponents-2.0.0/webcomponents.js"></script>
@@ -1415,7 +1449,7 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"What is interoperability?","description":"Here, I give a short introduction to interoperability and why I think we should make an effort for it.\n\n\nTL;DR: Many functions have very context-specific side-effects making code harder to understand and less exchangeable. Try using interoperable functions wherever you can!","authors":[{"author":"Steffen Ehrmann","authorURL":"#","affiliation":"iDiv/Macroecology and Society","affiliationURL":"https://www.idiv.de/en/groups_and_people/core_groups/macroecosocial.html","orcidID":"0000-0002-2958-0796"}],"publishedDate":"2020-12-14T00:00:00.000+01:00","citationText":"Ehrmann, 2020"}
+{"title":"What is interoperability?","description":"Here, I give a short introduction to interoperability and why I think we should make an effort for it.\n\n\nTL;DR: Many functions have very context-specific side-effects making code harder to understand and less exchangeable. Try using interoperable functions wherever you can!","authors":[{"author":"Steffen Ehrmann","authorURL":"#","affiliation":"iDiv/Macroecology and Society","affiliationURL":"https://www.idiv.de/en/groups_and_people/core_groups/macroecosocial.html","orcidID":"0000-0002-2958-0796"}],"publishedDate":"2021-07-13T00:00:00.000+02:00","citationText":"Ehrmann, 2021"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -1439,7 +1473,7 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <div class="d-byline">
   Steffen Ehrmann  (iDiv/Macroecology and Society)<a href="https://www.idiv.de/en/groups_and_people/core_groups/macroecosocial.html" class="uri">https://www.idiv.de/en/groups_and_people/core_groups/macroecosocial.html</a>
   
-<br/>2020-12-14
+<br/>2021-07-13
 </div>
 
 <div class="d-article">
@@ -1476,7 +1510,7 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <p>What is the difference between <code>[</code> and <code>[[</code>? Well, their documentation states that <code>[</code> can select more than one element, whereas the other selects only a single element. Also <code>$</code> selects only a single element, but due to the way it is invoked, this seems rather obvious. Let’s first look at <code>[</code>.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>df</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span>num <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>3</span>, <span class='fl'>4</span><span class='op'>)</span>,
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>df</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span>num <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>3</span>, <span class='fl'>4</span><span class='op'>)</span>,
                  char <span class='op'>=</span> <span class='va'>LETTERS</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>4</span><span class='op'>]</span>,
                  bool <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='cn'>F</span>, <span class='cn'>T</span>, <span class='cn'>T</span>, <span class='cn'>F</span><span class='op'>)</span>, 
                  stringsAsFactors <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
@@ -1491,7 +1525,7 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 3   3    C
 4   4    D</code></pre>
 <div class="sourceCode">
-<pre><code><span class='co'># select columns by name</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># select columns by name</span>
 <span class='va'>df</span><span class='op'>[</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"num"</span>, <span class='st'>"char"</span><span class='op'>)</span><span class='op'>]</span>          
 </code></pre>
 </div>
@@ -1501,13 +1535,13 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 3   3    C
 4   4    D</code></pre>
 <div class="sourceCode">
-<pre><code><span class='co'># selecting only one column with the same notation results in a different output format ...</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># selecting only one column with the same notation results in a different output format ...</span>
 <span class='va'>df</span><span class='op'>[</span>, <span class='fl'>1</span><span class='op'>]</span>
 </code></pre>
 </div>
 <pre><code>[1] 1 2 3 4</code></pre>
 <div class="sourceCode">
-<pre><code><span class='co'># ... except when using additional arguments (wait what... that's possible?)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># ... except when using additional arguments (wait what... that's possible?)</span>
 <span class='va'>df</span><span class='op'>[</span>, <span class='fl'>1</span>, drop <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>]</span>
 </code></pre>
 </div>
@@ -1517,17 +1551,17 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 3   3
 4   4</code></pre>
 <div class="sourceCode">
-<pre><code><span class='co'># using the [[ function that has been intended for selecting single columns, we</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># using the [[ function that has been intended for selecting single columns, we</span>
 <span class='co'># also only get the values, and not the whole column</span>
 <span class='va'>df</span><span class='op'>[[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>]</span>
 </code></pre>
 </div>
 <pre><code>[1] 1 2 3 4</code></pre>
 </div>
-<p>With this simple test, I gained the insight that <code>[</code> is by default not a function that has been designed for an interoperable workflow <em>without any restrictions</em>. When providing only a single value to <code>[</code>, I don’t receive a column (which implies that the output format is a data frame), but a vector of the contents of a column. I can’t use this function in any context, where it is not previously known how many columns I will have to select, without first running additional tests to inquire about the context.</p>
+<p>With this simple test, I gained the insight that <code>[</code> is by default not a function that has been designed for an interoperable workflow <em>without any restrictions</em>. When providing only a single value to <code>[</code>, I don’t receive a column (which implies that the output format is a data frame), but a vector of the contents of a column. I can’t use this function in any context, where it is not previously known how many columns I will have to select, without first running additional tests to inquire about the context (as in the following hypothetical function).</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>mySelect</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>df</span>, <span class='va'>row</span>, <span class='va'>cols</span><span class='op'>)</span><span class='op'>{</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>mySelect</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>df</span>, <span class='va'>row</span>, <span class='va'>cols</span><span class='op'>)</span><span class='op'>{</span>
   <span class='kw'>if</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>cols</span><span class='op'>)</span> <span class='op'>&gt;</span> <span class='fl'>1</span><span class='op'>)</span><span class='op'>{</span>
     <span class='va'>df</span><span class='op'>[</span><span class='va'>row</span>, <span class='va'>cols</span><span class='op'>]</span>               <span class='co'># here the default is sufficient</span>
   <span class='op'>}</span> <span class='kw'>else</span> <span class='op'>{</span>
@@ -1543,7 +1577,7 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <p>When indexing like a list, it makes sense that no comma is involved, because this is how we treat lists.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>lst</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>num <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>3</span>, <span class='fl'>4</span><span class='op'>)</span>,
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>lst</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>num <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>3</span>, <span class='fl'>4</span><span class='op'>)</span>,
             char <span class='op'>=</span> <span class='va'>LETTERS</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>4</span><span class='op'>]</span>, 
             bool <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='cn'>F</span>, <span class='cn'>T</span>, <span class='cn'>T</span>, <span class='cn'>F</span><span class='op'>)</span><span class='op'>)</span>
 
@@ -1554,7 +1588,7 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <pre><code>$num
 [1] 1 2 3 4</code></pre>
 <div class="sourceCode">
-<pre><code><span class='va'>df</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>df</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span>
 </code></pre>
 </div>
 <pre><code>  num
@@ -1563,13 +1597,13 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 3   3
 4   4</code></pre>
 <div class="sourceCode">
-<pre><code><span class='co'># get only the values</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># get only the values</span>
 <span class='va'>lst</span><span class='op'>[[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>]</span>
 </code></pre>
 </div>
 <pre><code>[1] 1 2 3 4</code></pre>
 <div class="sourceCode">
-<pre><code><span class='va'>df</span><span class='op'>[[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>]</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>df</span><span class='op'>[[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>]</span>
 </code></pre>
 </div>
 <pre><code>[1] 1 2 3 4</code></pre>
@@ -1577,7 +1611,7 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <p>In the documentation, there is no clear statement that <em>indexing like a matrix</em> and <em>indexing like a list</em> are different functions. Thus I find it most intuitive to assume that "omitting the <code>','</code>" is like choosing the first argument of the function call, as this the same behaviour as in any other function in R. However, you have guessed it, this is not how <code>[</code> works with the comma-notation because columns are specified after the comma.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='co'># indexing like a list</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># indexing like a list</span>
 <span class='va'>df</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span>
 </code></pre>
 </div>
@@ -1587,14 +1621,14 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 3   3
 4   4</code></pre>
 <div class="sourceCode">
-<pre><code><span class='co'># indexing naively (like a matrix)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># indexing naively (like a matrix)</span>
 <span class='va'>df</span><span class='op'>[</span><span class='fl'>1</span>, <span class='op'>]</span>
 </code></pre>
 </div>
 <pre><code>  num char  bool
 1   1    A FALSE</code></pre>
 <div class="sourceCode">
-<pre><code><span class='co'># actually indexing like a matrix and keeping the name</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># actually indexing like a matrix and keeping the name</span>
 <span class='va'>df</span><span class='op'>[</span>, <span class='fl'>1</span>, drop <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>]</span>
 </code></pre>
 </div>
@@ -1606,10 +1640,10 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 </div>
 <p>One could say <em><code>[</code> is not even interoperable with itself</em> (depending on how the arguments are specified)!? I am aware that this example is very artificial and anybody who has understood how "the comma-notation" works should be able to avoid that pitfall. Still, the fact that it even exists is another testimony of a lack of interoperability. I touched on it above already, <em>assuming it’s the same function</em> might be the problem here. Perhaps we should simply not regard <code>[</code> as the same function as <code>[,</code>, or not even as a special case of it – because their arguments contradict one another.</p>
 <h1 id="select-columns-by-name">Select columns <em>by name</em></h1>
-<p>The previous two issues are not even where the lack of interoperability ends or could conclusively be dealt with. When we want to select a column by its name, we can do with both <code>[</code> and <code>[[</code>. However, in case we were that witty person using <code>$</code>, we might get into trouble latest here. Some things are unknown at the time a function is built or compiled, such as the column names of data frames the user provides. Thus, a function that is supposed to work with such dynamic data has to be compatible with unknown column names.</p>
+<p>The previous two issues are not even where the lack of interoperability ends or could conclusively be dealt with. When we want to select a column by its name, we can do that with both <code>[</code> and <code>[[</code>. However, in case we were that witty person using <code>$</code>, we might get into trouble latest here. Some things are unknown at the time a function is built, such as the column names of data frames the user provides. Thus, a function that is supposed to work with such dynamic data has to be compatible with unknown column names.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='co'># select any column that is specified or determined elsewhere in a script or function</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># select any column that is specified or determined elsewhere in a script or function</span>
 <span class='va'>myColumn</span> <span class='op'>&lt;-</span> <span class='st'>"num"</span>
 
 <span class='va'>df</span><span class='op'>[</span><span class='va'>myColumn</span><span class='op'>]</span>
@@ -1621,12 +1655,12 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 3   3
 4   4</code></pre>
 <div class="sourceCode">
-<pre><code><span class='va'>df</span><span class='op'>[[</span><span class='va'>myColumn</span><span class='op'>]</span><span class='op'>]</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>df</span><span class='op'>[[</span><span class='va'>myColumn</span><span class='op'>]</span><span class='op'>]</span>
 </code></pre>
 </div>
 <pre><code>[1] 1 2 3 4</code></pre>
 <div class="sourceCode">
-<pre><code><span class='va'>df</span><span class='op'>$</span><span class='va'>myColumn</span>                   <span class='co'># bummer!</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>df</span><span class='op'>$</span><span class='va'>myColumn</span>                   <span class='co'># bummer!</span>
 </code></pre>
 </div>
 <pre><code>NULL</code></pre>
@@ -1637,12 +1671,12 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li>that column definitely exists in the data-frame and</li>
 <li>I want the output as a numeric vector without a name.</li>
 </ul>
-<p>Granted, in (some/many/most) cases this may be sufficient, depending on your use-cases. However, I would argue, here again, the code must be provided with routines that ensure all requirements are met, before being able to successfully proceed.</p>
+<p>Granted, in (some/many/most) cases this may be sufficient, depending on your use-cases. However, I would argue, here again, the code must be provided with routines that ensure all requirements are met (i.e., <em>made interoperable</em>), before being able to successfully proceed.</p>
 <h1 id="summing-up">Summing up</h1>
-<p>There are several ways of selecting a column from a data frame, some of which are are more or less context-specific and thus not interoperable (in the sense of interchangeable).</p>
+<p>There are several ways of selecting a column from a data frame, some of which are more or less context-specific and thus not interoperable (in the sense of interchangeable).</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='co'># get the values as column in a data-frame</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># get the values as column in a data-frame</span>
 <span class='va'>df</span><span class='op'>[</span><span class='st'>"num"</span><span class='op'>]</span>
 <span class='va'>df</span><span class='op'>[</span>, <span class='st'>"num"</span>, drop <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>]</span>
 <span class='va'>df</span><span class='op'>[</span><span class='va'>myColumn</span><span class='op'>]</span>
@@ -1660,7 +1694,7 @@ Perhaps at this stage you don’t believe that you even need to manage implicit 
 </aside>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://dplyr.tidyverse.org'>dplyr</a></span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://dplyr.tidyverse.org'>dplyr</a></span><span class='op'>)</span>
 
 <span class='co'># select the column ...</span>
 <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>df</span>, <span class='va'>num</span><span class='op'>)</span>
@@ -1672,7 +1706,7 @@ Perhaps at this stage you don’t believe that you even need to manage implicit 
 3   3
 4   4</code></pre>
 <div class="sourceCode">
-<pre><code><span class='co'># ... or its values</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># ... or its values</span>
 <span class='fu'><a href='https://dplyr.tidyverse.org/reference/pull.html'>pull</a></span><span class='op'>(</span><span class='va'>df</span>, <span class='va'>num</span><span class='op'>)</span>
 </code></pre>
 </div>
@@ -1681,7 +1715,7 @@ Perhaps at this stage you don’t believe that you even need to manage implicit 
 <p>Interoperability can have many faces and can be interpreted from different perspectives; the one I complained about here is only one. While <code>[</code> might have some problematic aspects (which seem to be mostly due to its implementation of <em>indexing like a matrix</em>), it is itself an attempt at making code more interoperable. The bracket function exists in many programming languages and typically serves as a tool to index arrays. As many objects are stored in arrays, it is thus a frequently used tool to access data or their subsets. Moreover, also within R, it allows accessing objects of different classes with the same notation.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>vector</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>3</span>, <span class='fl'>4</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>vector</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>3</span>, <span class='fl'>4</span><span class='op'>)</span>
 
 <span class='va'>df</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span>
 </code></pre>
@@ -1692,13 +1726,13 @@ Perhaps at this stage you don’t believe that you even need to manage implicit 
 3   3
 4   4</code></pre>
 <div class="sourceCode">
-<pre><code><span class='va'>lst</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>lst</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span>
 </code></pre>
 </div>
 <pre><code>$num
 [1] 1 2 3 4</code></pre>
 <div class="sourceCode">
-<pre><code><span class='va'>vector</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>vector</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span>
 </code></pre>
 </div>
 <pre><code>[1] 1</code></pre>

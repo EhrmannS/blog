@@ -7,7 +7,7 @@
     <description>Exploring human-nature interactions and thoughts about interoperability and reproducible science
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Mon, 14 Dec 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 13 Jul 2021 00:00:00 +0000</lastBuildDate>
     <item>
       <title>What is interoperability?</title>
       <dc:creator>Steffen Ehrmann</dc:creator>
@@ -19,7 +19,7 @@ TL;DR: Many functions have very context-specific side-effects making code harder
       <category>interoperability</category>
       <category>why though</category>
       <guid>https://www.steffen-ehrmann.de/posts/2020-11-27-what-is-interoperability</guid>
-      <pubDate>Mon, 14 Dec 2020 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 13 Jul 2021 00:00:00 +0000</pubDate>
     </item>
   </channel>
 </rss>

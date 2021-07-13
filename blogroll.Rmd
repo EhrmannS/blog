@@ -14,9 +14,15 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-# Geography
+# Human-nature interactions
+
+[Our world in data - Land-use (dossier)](https://ourworldindata.org/land-use)
+
+[Our world in data - Food-supply (dossier)](https://ourworldindata.org/food-supply)
 
 [The Geography of Transport Systems (book)](https://transportgeography.org/)
+
+
 
 # Machine learning
 
@@ -27,3 +33,7 @@ knitr::opts_chunk$set(echo = FALSE)
 [Semantic Scholar (search engine)](https://www.semanticscholar.org)
 
 [gapminder (thematic compilation)](https://www.gapminder.org/)
+
+# Working with regular expressions
+
+[regular expressions 101](https://regex101.com/)

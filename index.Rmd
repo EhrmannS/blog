@@ -1,5 +1,5 @@
 ---
-title: "Exploring human-nature interactions and interoperability"
+title: "A website on human-nature interactions and interoperability in research"
 site: distill::distill_website
 listing: posts
 ---

@@ -1,7 +1,7 @@
 ---
 title: "Projects"
 description: |
-  This is a summary of the projects I participated in
+  This is a summary of the projects I do or did participate in
 ---
 
 ```{r setup, include=FALSE}

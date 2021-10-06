@@ -4,11 +4,21 @@ description: |
   A short description of the post.
 author:
   - name: Steffen Ehrmann
-    url: {}
-date: 10-06-2021
+    affiliation: iDiv/Macroecology and Society
+    affiliation_url: https://www.idiv.de/en/groups_and_people/core_groups/macroecosocial.html
+    orcid_id: 0000-0002-2958-0796
+date: "`r Sys.Date()`"
+slug: whyImplicitAssumptions
 output:
   distill::distill_article:
+    highlight: haddock
     self_contained: false
+    toc: true
+    toc_depth: 2
+categories:
+  - code management
+  - why though
+  - R
 draft: true
 ---
 
@@ -18,5 +28,7 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 
+https://en.wikipedia.org/wiki/Tacit_assumption
 
+programming is ideally all about making code more explicit, however, sometimes some functions come with certain assumptions or do certain things implicitly, without that being stated explicitly. For instance, thinking about side-effects (find a bunch of "awesome" or unexpected side-effects)
 

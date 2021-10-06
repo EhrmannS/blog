@@ -52,7 +52,7 @@ This task is composed of two subtasks:
 - grouping the values according to the levels,
 - calculating the average for each group.
 
-While `table()` carries out the task in one go, the functions `group_by()` and `summarise()` do the same thing, but more explicitly ^[As yet another advantage, this procedure also allows calculating summary metrics other than a sum or count].
+While the base R function `table()` carries out the task in one go, the functions dplyr functions `group_by()` and `summarise()` do the same thing, but more explicitly ^[As yet another advantage, this procedure also allows calculating summary metrics other than a sum or count].
 
 Exceptions to an otherwise well-defined operator are not available as a standalone function. Instead, the correct building blocks have to be combined to end up with the desired result, and this is what ultimately results in more interoperability.
 It is crystal clear what any workflow means, in terms of the combination of well-understood operators.
@@ -91,13 +91,13 @@ df[, c("num", "char")]
 df[, 1]
 # ... except when using additional arguments (wait what... that's possible?)
 df[, 1, drop = FALSE]
-# using the [[ function that has been intended for selecting single columns, we
+# using the [[ function that has been intended for selecting single element, we
 # also only get the values, and not the whole column
 df[[1]]
 ```
 
 With this simple test, I gained the insight that `[` is by default not a function that has been designed for an interoperable workflow *without any restrictions*.
-When providing only a single value to `[`, I don't receive a column (which implies that the output format is a data frame), but a vector of the contents of a column.
+When providing only a single value to `[`, I don't receive a column (which would imply that the output format is a data frame), but a vector of the contents of a column.
 I can't use this function in any context, where it is not previously known how many columns I will have to select, without first running additional tests to inquire about the context (as in the following hypothetical function).
 
 ```{r, echo=TRUE}
@@ -110,7 +110,7 @@ mySelect <- function(df, row, cols){
 }
 ```
 
-As I could simply use the `drop = FALSE` argument, this lack of interoperability may not look like a big deal right now. 
+As I could simply use the `drop = FALSE` argument all the time, this lack of interoperability may not look like a big deal right now. 
 The example nevertheless underpins the point that if I use the default of this function, the *format* of the output I get from this particular operation depends on my input case (whether I need to select one or more columns).
 I would argue that it is a big deal. 
 We always have to bear in mind that a program only knows what we tell it to know. 
@@ -120,9 +120,9 @@ When we tell our program or expect by implication ^[which is the case with most 
 
 Moreover, to understand both `[` and `[[`, we also need to know that we can index a data frame \"like a matrix\" using a `','`.
 We would signal that either rows (anything before the comma), columns (anything behind the comma), or a single cell (both positions) are selected.
-That *indexing like a matrix*-statement presumably only makes sense when its clear that a data frame is, in fact, a special case of a list.
+That *indexing like a matrix*-statement presumably only makes sense when its clear that a data frame is, in fact, a special case of a list, so that indexing like a matrix is not the first thing to think about when indexing a data frame.
 That case is characterised by only one level of nesting, the same amount of elements per list-item and with a specific way of being printed in the console.
-Thus, when not indexing like a matrix (i.e., with `','`), one indexes a data frame *like a list* (i.e., without `','`).
+So the other case of indexing a data frame (next to *like a matrix*, i.e., with `','`) is indexing it *like a list* (i.e., without `','`).
 
 When indexing like a list, it makes sense that no comma is involved, because this is how we treat lists.
 
@@ -183,7 +183,7 @@ In case I decide to use the `$` function, I can only do this where:
 
 - I am certain that a single column is selected,
 - that column definitely exists in the data-frame and 
-- I want the output as a numeric vector without a name.
+- I want the output as a vector without name.
 
 Granted, in (some/many/most) cases this may be sufficient, depending on your use-cases. 
 However, I would argue, here again, the code must be provided with routines that ensure all requirements are met (i.e., *made interoperable*), before being able to successfully proceed.
@@ -198,7 +198,7 @@ df["num"]
 df[, "num", drop = FALSE]
 df[myColumn]
 
-# get the values as numeric vector
+# get the values as vector
 df[, "num"]
 df[["num"]]
 df$num
@@ -218,7 +218,7 @@ library(dplyr)
 # select the column ...
 select(df, num)
 
-# ... or its values
+# ... or pull its values
 pull(df, num)
 
 ```

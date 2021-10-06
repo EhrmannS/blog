@@ -1,0 +1,22 @@
+---
+title: "Managing Implicit Assumptions"
+description: |
+  A short description of the post.
+author:
+  - name: Steffen Ehrmann
+    url: {}
+date: 10-06-2021
+output:
+  distill::distill_article:
+    self_contained: false
+draft: true
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+
+

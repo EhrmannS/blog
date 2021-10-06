@@ -1,5 +1,5 @@
 ---
-title: "Steffen Ehrmann"
+title: "Exploring human-nature interactions and interoperability"
 site: distill::distill_website
 listing: posts
 ---

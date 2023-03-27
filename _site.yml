@@ -31,6 +31,8 @@ navbar:
           href: projects.html#funbo
         - text: "smallFOREST"
           href: projects.html#smallforest
+    - text: Articles
+      href: articles.html
     - text: "Blogroll"
       href: blogroll.html
 output:

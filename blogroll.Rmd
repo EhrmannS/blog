@@ -22,6 +22,8 @@ knitr::opts_chunk$set(echo = FALSE)
 
 [The Geography of Transport Systems (book)](https://transportgeography.org/)
 
+[Climate Change Claims a Lake, and an Identiy (scrolly)](https://www.nytimes.com/interactive/2016/07/07/world/americas/bolivia-climate-change-lake-poopo.html) An indigenous group that survived Spanish and Inca conquest cannot handle the abrupt upheaval of global warming. Lake Poopó was more than their livelihood: It was their identity.
+
 
 
 # Machine learning

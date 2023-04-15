@@ -24,13 +24,11 @@ navbar:
       href: projects.html
       menu:
         - text: "LUCKINet"
-          href: projects/luckinet.html
+          href: projects_luckinet.html
         - text: "GeoKur"
-          href: projects.html#geokur
-        - text: "FunBo"
-          href: projects.html#funbo
+          href: projects_geokur.html
         - text: "smallFOREST"
-          href: projects.html#smallforest
+          href: projects_smallforest.html
     - text: Articles
       href: articles.html
     - text: "Blogroll"

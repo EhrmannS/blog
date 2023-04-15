@@ -1,0 +1,11 @@
+---
+title: "GeoKur"
+description: ""
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+website: [GeoKur](https://geokur.geo.tu-dresden.de)
+

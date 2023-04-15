@@ -9,18 +9,5 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 
-# GeoKur
 
 
-website: [GeoKur](https://geokur.geo.tu-dresden.de)
-
-
-# FunBo
-
-Information coming soon
-
-
-# smallFOREST
-
-
-website: [smallFOREST](https://www.u-picardie.fr/smallforest/uk/)

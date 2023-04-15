@@ -39,6 +39,10 @@ So what is [interoperability](https://en.wikipedia.org/wiki/Interoperability) th
 
   > "Interoperability is a characteristic of a product or system, whose interfaces are completely understood, to work with other products or systems, present or future, in either implementation or access, without any restrictions." ^[http://interoperability-definition.info/en/]
 
+<aside>
+Addition, April 2023: As it goes, the link to the definition of \"interoperability\" does not work anymore. The version that is save on the webarchive also has a problem in whatever system used there... so much for interoperability, right!?
+</aside>
+
 Interoperable software, for instance, is designed to efficiently exchange information with other software by providing the output of functionally similar (or the same) operations in a common arrangement or format, standardising access to the resulting data. 
 This principle is not only true for software written in different programming languages, but can also apply to several packages, or workflows, within the R ecosystem.
 

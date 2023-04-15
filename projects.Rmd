@@ -9,12 +9,6 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 
-# LUCKINet
-
-
-website: [LUCKINet](https://www.idiv.de/en/luckinet.html)
-
-
 # GeoKur
 
 

@@ -24,7 +24,7 @@ navbar:
       href: projects.html
       menu:
         - text: "LUCKINet"
-          href: projects.html#luckinet
+          href: projects/luckinet.html
         - text: "GeoKur"
           href: projects.html#geokur
         - text: "FunBo"

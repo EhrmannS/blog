@@ -1,0 +1,11 @@
+---
+title: "LUCKINet"
+description: "Land-Use Change Knowledge Integration network"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+website: [LUCKINet](https://www.idiv.de/en/luckinet.html)
+

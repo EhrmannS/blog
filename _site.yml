@@ -6,7 +6,7 @@ base_url: https://www.steffen-ehrmann.de
 output_dir: "."
 navbar:
   search: true
-  source_url: https://github.com/EhrmannS/website
+  source_url: https://github.com/EhrmannS/blog
   right:
     - text: "Home"
       href: index.html
@@ -17,16 +17,22 @@ navbar:
         - text: "geometr"
           href: https://ehrmanns.github.io/geometr/
         - text: "tabshiftr"
-          href: https://ehrmanns.github.io/tabshiftr/
+          href: https://luckinet.github.io/tabshiftr/
         - text: "arealDB"
-          href: https://github.com/EhrmannS/arealDB
+          href: https://luckinet.github.io/arealDB/
+        - text: "ontologics"
+          href: https://luckinet.github.io/ontologics/
+        - text: "bitfield"
+          href: https://ehrmanns.github.io/bitfield/
     - text: Projects
       href: projects.html
       menu:
+        - text: Global Pasture Watch
+          href: https://opengeohub.org/project/global-pasture-watch/
         - text: "LUCKINet"
-          href: projects_luckinet.html
+          href: https://github.com/luckinet
         - text: "GeoKur"
-          href: projects_geokur.html
+          href: https://geokur.geo.tu-dresden.de/
         - text: "smallFOREST"
           href: projects_smallforest.html
     - text: Articles
@@ -36,9 +42,6 @@ navbar:
 output:
   distill::distill_article
 creative_commons: CC BY-SA
-twitter:
-  site: "@DerEhrmann"
-  creator: "@DerEhrmann"
 collections:
   posts:
     categories: true
